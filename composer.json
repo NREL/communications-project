@@ -1,0 +1,143 @@
+{
+    "name": "acquia/lightning-project",
+    "description": "Project template for Drupal 8 sites built with the Lightning distribution.",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "drupal/drupal-extension": "~3.2.0",
+        "behat/mink": "~1.7",
+        "behat/mink-goutte-driver": "~1.2",
+        "jcalderonzumba/gastonjs": "~1.0.2",
+        "drupal/coder": "8.*",
+        "mikey179/vfsStream": "~1.2",
+        "phpunit/phpunit": "~4.8",
+        "symfony/css-selector": "~2.8",
+        "behat/behat": "^3.0",
+        "se/selenium-server-standalone": "^2.53",
+        "composer/composer": "^1.3",
+        "drush/drush": "8.1.11",
+        "drupal/console": "^1.0"
+    },
+    "require": {
+        "composer/installers": "^1.0",
+        "drupal-composer/drupal-scaffold": "^2.0.0",
+        "cweagans/composer-patches": "^1.6.0",
+        "acquia/lightning": "dev-8.x-2.x", 
+        "NREL/profile-communications": "dev-custom",
+        "simplesamlphp/simplesamlphp": "^1.14",
+        "drupal/simplesamlphp_auth": "^3.0@RC",
+        "drupal/features": "^3.5",
+        "drupal/bootstrap": "^3.3",
+        "twbs/bootstrap": "^3.3.6",
+        "d3/d3": "3.5.*",
+        "components/highlightjs": "9.7.*",
+        "solarium/solarium": "3.8.*"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "NREL/profile-communications",
+                "version": "dev-custom",
+                "type": "drupal-profile",
+                "source": {
+                    "url": "git@github.com:NREL/profile-communications.git",
+                    "type": "git",
+                    "reference": "fcd6af0c"
+                }
+            }
+        },
+        {
+      "type": "package",
+      "package": {
+        "name": "d3/d3",
+        "version": "v3.5.17",
+        "type": "drupal-library",
+        "source": {
+          "url": "https://github.com/d3/d3",
+          "type": "git",
+          "reference": "v3.5.17"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "components/highlightjs",
+        "version": "9.7.0",
+        "type": "drupal-library",
+        "source": {
+          "url": "https://github.com/components/highlightjs",
+          "type": "git",
+          "reference": "9.7.0"
+        }
+      }
+    }
+    ],
+    "scripts": {
+      "post-install-cmd": [
+          "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+          "Acquia\\Lightning\\ScriptHandler::deployLibraries",
+          "if [ ! -d ./docroot/simplesaml ] ; then /bin/ln -f -s ../vendor/simplesamlphp/simplesamlphp/www ./docroot/simplesaml ; fi",
+          "/bin/ln -f -s ../../../../simplesamlphp/config/authsources.php ./vendor/simplesamlphp/simplesamlphp/config/authsources.php",
+          "/bin/ln -f -s ../../../../simplesamlphp/config/config.php ./vendor/simplesamlphp/simplesamlphp/config/config.php",
+          "/bin/ln -f -s ../../../../simplesamlphp/config/authmemcookie.php ./vendor/simplesamlphp/simplesamlphp/config/authmemcookie.php",
+          "/bin/ln -f -s ../../../../simplesamlphp/config/ldap.php ./vendor/simplesamlphp/simplesamlphp/config/ldap.php",
+          "/bin/ln -f -s ../../../../simplesamlphp/metadata/saml20-idp-remote.php ./vendor/simplesamlphp/simplesamlphp/metadata/saml20-idp-remote.php",
+          "/bin/ln -f -s ../../../../simplesamlphp/metadata/saml20-sp-remote.php ./vendor/simplesamlphp/simplesamlphp/metadata/saml20-sp-remote.php",
+          "patch ./docroot/.htaccess < ./patches/htaccess-saml.patch",
+
+          "/bin/ln -f -s  ./docroot/profiles/contrib/profile-communications ./docroot/profiles/contrib/communications",
+
+          "rm -Rf ./docroot/profiles/contrib/profile-communications/.git",
+          "rm ./docroot/profiles/contrib/communications",
+          "/bin/ln -f -s ../../../docroot/profiles/contrib/profile-communications ./docroot/profiles/contrib/communications",
+          "/bin/ln -f -s ../../../../../../../vendor/twbs/bootstrap ./docroot/profiles/contrib/communications/themes/contrib/nrel_bootstrap/bootstrap",
+          "rm -Rf ./docroot/libraries/d3/.git*",
+          "rm -Rf ./docroot/libraries/highlightjs/.git*"
+      ],
+      "post-update-cmd": [
+        "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "Acquia\\Lightning\\ScriptHandler::deployLibraries"
+      ]
+    },
+    "config": {
+        "bin-dir": "bin/"
+    },
+    "autoload": {
+        "classmap": [
+          "scripts/ScriptHandler.php"
+        ]
+    },
+    "extra": {
+        "installer-paths": {
+            "docroot/core": [
+                "type:drupal-core"
+            ],
+            "docroot/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "docroot/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "docroot/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "docroot/libraries/{$name}": ["type:drupal-library"]
+        },
+        "enable-patching": true,
+        "patches": {
+            "drupal/core": {
+            }
+        }
+    }
+}
