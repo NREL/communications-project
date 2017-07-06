@@ -33,7 +33,11 @@
         "twbs/bootstrap": "^3.3.6",
         "d3/d3": "3.5.*",
         "components/highlightjs": "9.7.*",
-        "solarium/solarium": "3.8.*"
+        "solarium/solarium": "3.8.*",
+        "elasticsearch/elasticsearch": "^5.2",
+        "aws/aws-sdk-php": "^3.31",
+        "jsq/amazon-es-php": "^0.2.0",
+        "nodespark/des-connector": "5.x-dev"
     },
     "repositories": [
         {
@@ -49,7 +53,7 @@
                 "source": {
                     "url": "git@github.com:NREL/profile-communications.git",
                     "type": "git",
-                    "reference": "fa003bbc"
+                    "reference": "7ead7a58"
                 }
             }
         },
@@ -137,6 +141,10 @@
         "enable-patching": true,
         "patches": {
             "drupal/core": {
+            },
+            "drupal/page_manager": {
+                "2874851 - Clicking a variant in page manager does not open the variant config":
+              "https://www.drupal.org/files/issues/page_manager-2874851-8.patch"
             }
         }
     }
