@@ -2,6 +2,22 @@
     "name": "nrel/communications-project",
     "description": "Project template for Drupal 8 sites built with the Communications Lightning sub-profiledistribution.",
     "type": "project",
+    "homepage": "https://github.com/NREL/communications-project",
+    "authors": [
+        {
+            "name": "Damon Haley (dhaley)",
+            "email": "damon.haley@nrel.gov",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Shaun Laws (slaws)",
+            "email": "shaun.laws@nrel.gov",
+            "role": "Co-maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/NREL/communications-project/issues"
+    },
     "license": "GPL-2.0+",
     "minimum-stability": "dev",
     "prefer-stable": true,
