@@ -142,6 +142,10 @@
             "drupal/page_manager": {
                 "2874851 - Clicking a variant in page manager does not open the variant config":
               "https://www.drupal.org/files/issues/page_manager-2874851-8.patch"
+            },
+            "drupal/metatag": {
+                "2874851 - Drupal fix webprofiler crash":
+                "https://www.drupal.org/files/issues/metatag-n2882954-28.patch"
             }
         }
     }
