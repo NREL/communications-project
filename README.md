@@ -1,4 +1,4 @@
-This is a Composer-based installer for the [Communications](https://www.github.com/NREL/profile-communications) sub-profile based on the [Lightning](https://www.drupal.org/project/lightning) Drupal distribution. Welcome to the future!
+This is a Composer-based installer for the [Communications](https://github.com/NREL/profile-communications/tree/8.x-2.05) sub-profile based on the [Lightning](https://www.drupal.org/project/lightning) Drupal distribution. Welcome to the future!
 
 ## Get Started
 ```
