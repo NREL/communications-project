@@ -1,6 +1,6 @@
 {
     "name": "nrel/communications-project",
-    "description": "Project template for Drupal 8 sites built with the Communications Lightning sub-profile distribution.",
+    "description": "Project template for Drupal 8 sites built with the Communications Lightning sub-profiledistribution.",
     "type": "project",
     "license": "GPL-2.0+",
     "minimum-stability": "dev",
@@ -24,8 +24,8 @@
         "composer/installers": "^1.0",
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "cweagans/composer-patches": "^1.6.0",
-        "acquia/lightning": "dev-8.x-2.x", 
-        "NREL/profile-communications": "dev-custom",
+        "acquia/lightning": "dev-8.x-2.x",
+        "nrel/communications": "dev-master",
         "simplesamlphp/simplesamlphp": "^1.14",
         "drupal/simplesamlphp_auth": "^3.0@RC",
         "drupal/features": "^3.5",
@@ -43,19 +43,6 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "NREL/profile-communications",
-                "version": "dev-custom",
-                "type": "drupal-profile",
-                "source": {
-                    "url": "git@github.com:NREL/profile-communications.git",
-                    "type": "git",
-                    "reference": "e04f1c7c"
-                }
-            }
         },
         {
       "type": "package",
@@ -96,10 +83,6 @@
           "/bin/ln -f -s ../../../../simplesamlphp/metadata/saml20-idp-remote.php ./vendor/simplesamlphp/simplesamlphp/metadata/saml20-idp-remote.php",
           "/bin/ln -f -s ../../../../simplesamlphp/metadata/saml20-sp-remote.php ./vendor/simplesamlphp/simplesamlphp/metadata/saml20-sp-remote.php",
           "patch ./docroot/.htaccess < ./patches/htaccess-saml.patch",
-        "if [ ! -d ./docroot/profiles/contrib/communications ] ; then /bin/ln -f -s  ./docroot/profiles/contrib/profile-communications ./docroot/profiles/contrib/communications ; fi",
-          "rm -Rf ./docroot/profiles/contrib/profile-communications/.git",
-          "rm ./docroot/profiles/contrib/communications",
-          "/bin/ln -f -s ../../../docroot/profiles/contrib/profile-communications ./docroot/profiles/contrib/communications",
           "/bin/ln -f -s ../../../../../../../vendor/twbs/bootstrap ./docroot/profiles/contrib/communications/themes/contrib/nrel_bootstrap/bootstrap",
           "rm -Rf ./docroot/libraries/d3/.git*",
           "rm -Rf ./docroot/libraries/highlightjs/.git*"
