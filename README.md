@@ -2,7 +2,7 @@ This is a Composer-based installer for the [Communications](https://github.com/N
 
 ## Get Started
 ```
-$ composer create-project acquia/communications-project MY_PROJECT
+$ composer create-project NREL/communications-project MY_PROJECT
 ```
 Composer will create a new directory called MY_PROJECT containing a ```docroot``` directory with a full Lightning code base therein. You can then install it like you would any other Drupal site.
 
