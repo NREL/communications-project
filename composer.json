@@ -1,6 +1,6 @@
 {
-    "name": "acquia/lightning-project",
-    "description": "Project template for Drupal 8 sites built with the Lightning distribution.",
+    "name": "nrel/communications-project",
+    "description": "Project template for Drupal 8 sites built with the Communications Lightning sub-profiledistribution.",
     "type": "project",
     "license": "GPL-2.0+",
     "minimum-stability": "dev",
@@ -96,9 +96,7 @@
           "/bin/ln -f -s ../../../../simplesamlphp/metadata/saml20-idp-remote.php ./vendor/simplesamlphp/simplesamlphp/metadata/saml20-idp-remote.php",
           "/bin/ln -f -s ../../../../simplesamlphp/metadata/saml20-sp-remote.php ./vendor/simplesamlphp/simplesamlphp/metadata/saml20-sp-remote.php",
           "patch ./docroot/.htaccess < ./patches/htaccess-saml.patch",
-
-          "/bin/ln -f -s  ./docroot/profiles/contrib/profile-communications ./docroot/profiles/contrib/communications",
-
+        "if [ ! -d ./docroot/profiles/contrib/communications ] ; then /bin/ln -f -s  ./docroot/profiles/contrib/profile-communications ./docroot/profiles/contrib/communications ; fi",
           "rm -Rf ./docroot/profiles/contrib/profile-communications/.git",
           "rm ./docroot/profiles/contrib/communications",
           "/bin/ln -f -s ../../../docroot/profiles/contrib/profile-communications ./docroot/profiles/contrib/communications",
