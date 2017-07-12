@@ -41,7 +41,7 @@
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "cweagans/composer-patches": "^1.6.0",
         "acquia/lightning": "dev-8.x-2.x",
-        "nrel/communications": "dev-master",
+        "nrel/communications": "~1.0.2",
         "simplesamlphp/simplesamlphp": "^1.14",
         "drupal/simplesamlphp_auth": "^3.0@RC",
         "drupal/features": "^3.5",
@@ -53,7 +53,21 @@
         "elasticsearch/elasticsearch": "^5.2",
         "aws/aws-sdk-php": "^3.31",
         "jsq/amazon-es-php": "^0.2.0",
-        "nodespark/des-connector": "5.x-dev"
+        "nodespark/des-connector": "5.x-dev",
+        "drupal/imagemagick": "~2.0",
+        "drupal/admin_toolbar": "^1.19",
+        "drupal/blazy": "~1.0",
+        "brightcove/api": "^1.0",
+        "drupal/devel": "^1.0@RC",
+        "enyo/dropzone": "^5.1",
+        "drupal/dropzonejs": "^1.0@alpha",
+        "drupal/eck": "^1.0@alpha",
+        "drupal/elasticsearch_aws_connector": "5.x-dev",
+        "drupal/elasticsearch_connector": "5.x-dev",
+        "lsolesen/pel": "^0.9.6",
+        "drupal/file_entity": "2.x-dev", 
+        "drupal/file_mdm": "^1.1",
+        "phenx/php-font-lib": "^0.5.0"
     },
     "repositories": [
         {
@@ -92,6 +106,13 @@
           "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
           "Acquia\\Lightning\\ScriptHandler::deployLibraries",
           "if [ ! -d ./docroot/simplesaml ] ; then /bin/ln -f -s ../vendor/simplesamlphp/simplesamlphp/www ./docroot/simplesaml ; fi",
+          "if [ ! -d ./docroot/libraries/jquery_colorpicker ] ; then /bin/ln -f -s ../../docroot/profiles/contrib/communications/libraries/jquery_colorpicker ./docroot/libraries/jquery_colorpicker ; fi",
+          "if [ ! -d ./docroot/libraries/slick ] ; then /bin/ln -f -s ../../docroot/profiles/contrib/communications/libraries/slick ./docroot/libraries/slick ; fi",
+          "if [ ! -d ./docroot/libraries/masonry ] ; then /bin/ln -f -s ../../docroot/profiles/contrib/communications/libraries/masonry ./docroot/libraries/masonry ; fi",
+          "if [ ! -d ./docroot/libraries/juicebox ] ; then /bin/ln -f -s ../../docroot/profiles/contrib/communications/libraries/juicebox ./docroot/libraries/juicebox ; fi",
+          "if [ ! -d ./docroot/libraries/imagesloaded ] ; then /bin/ln -f -s ../../docroot/profiles/contrib/communications/libraries/imagesloaded ./docroot/libraries/imagesloaded ; fi",
+          "if [ ! -d ./docroot/libraries/dropzone ] ; then /bin/ln -f -s ../../vendor/enyo/dropzone ./docroot/libraries/dropzone ; fi",
+          "if [ ! -d ./docroot/libraries/plupload ] ; then /bin/ln -f -s ../../docroot/profiles/contrib/communications/libraries/plupload ./docroot/libraries/plupload ; fi",
           "/bin/ln -f -s ../../../../simplesamlphp/config/authsources.php ./vendor/simplesamlphp/simplesamlphp/config/authsources.php",
           "/bin/ln -f -s ../../../../simplesamlphp/config/config.php ./vendor/simplesamlphp/simplesamlphp/config/config.php",
           "/bin/ln -f -s ../../../../simplesamlphp/config/authmemcookie.php ./vendor/simplesamlphp/simplesamlphp/config/authmemcookie.php",
@@ -146,6 +167,10 @@
             "drupal/metatag": {
                 "2874851 - Drupal fix webprofiler crash":
                 "https://www.drupal.org/files/issues/metatag-n2882954-28.patch"
+            },
+            "drupal/media_entity_image": {
+                "2875852 - Add Imagick field providers":
+                "https://www.drupal.org/files/issues/media_entity_image-2875852-3-Add-Imagick-field-providers.patch"
             }
         }
     }
