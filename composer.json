@@ -67,7 +67,9 @@
         "lsolesen/pel": "^0.9.6",
         "drupal/file_entity": "2.x-dev", 
         "drupal/file_mdm": "^1.1",
-        "phenx/php-font-lib": "^0.5.0"
+        "phenx/php-font-lib": "^0.5.0",
+        "phpoffice/phpexcel": "1.8.0",
+        "drupal/vbo_export": "2.x-dev"
     },
     "repositories": [
         {
