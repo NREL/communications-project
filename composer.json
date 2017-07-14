@@ -126,6 +126,7 @@
           "/bin/ln -f -s ../../../../simplesamlphp/metadata/saml20-sp-remote.php ./vendor/simplesamlphp/simplesamlphp/metadata/saml20-sp-remote.php",
           "patch ./docroot/.htaccess < ./patches/htaccess-saml.patch",
           "/bin/ln -f -s ../../../../../../../vendor/twbs/bootstrap ./docroot/profiles/contrib/communications/themes/contrib/nrel_bootstrap/bootstrap",
+          "/bin/ln -f -s ../../../../../../../vendor/twbs/bootstrap ./docroot/profiles/contrib/communications/themes/contrib/thesource/bootstrap",
           "rm -Rf ./docroot/libraries/d3/.git*",
           "rm -Rf ./docroot/libraries/highlightjs/.git*"
       ],
