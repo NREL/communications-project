@@ -117,7 +117,7 @@
           "if [ ! -d ./docroot/libraries/juicebox ] ; then /bin/ln -f -s ../../docroot/profiles/contrib/communications/libraries/juicebox ./docroot/libraries/juicebox ; fi",
           "if [ ! -d ./docroot/libraries/imagesloaded ] ; then /bin/ln -f -s ../../docroot/profiles/contrib/communications/libraries/imagesloaded ./docroot/libraries/imagesloaded ; fi",
           "if [ ! -d ./docroot/libraries/dropzone ] ; then /bin/ln -f -s ../../vendor/enyo/dropzone ./docroot/libraries/dropzone ; fi",
-          "if [ ! -d ./docroot/libraries/PHPExcel ] ; then /bin/ln -f -s ../../vendor/phpoffice/phpexcel/Classes/PHPExcel ./docroot/libraries/PHPExcel ; fi",
+          "if [ ! -d ./docroot/libraries/phpexcel ] ; then /bin/ln -f -s ../../vendor/phpoffice/phpexcel ./docroot/libraries/phpexcel ; fi",
           "if [ ! -d ./docroot/libraries/plupload ] ; then /bin/ln -f -s ../../docroot/profiles/contrib/communications/libraries/plupload ./docroot/libraries/plupload ; fi",
           "/bin/ln -f -s ../../../../simplesamlphp/config/authsources.php ./vendor/simplesamlphp/simplesamlphp/config/authsources.php",
           "/bin/ln -f -s ../../../../simplesamlphp/config/config.php ./vendor/simplesamlphp/simplesamlphp/config/config.php",
