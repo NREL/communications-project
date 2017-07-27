@@ -99,7 +99,8 @@
         "drupal/seo_checklist": "^4.0",
         "drupal/services": "^4.0@beta",
         "drupal/slick": "^1.0",
-        "drupal/url_embed": "^1.0@alpha"
+        "drupal/url_embed": "^1.0@alpha",
+        "drupal/coffee": "^1.0@beta"
     },
     "repositories": [
         {
