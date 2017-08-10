@@ -34,15 +34,15 @@
         "se/selenium-server-standalone": "^2.53",
         "composer/composer": "^1.3",
         "drush/drush": "8.1.11",
-        "drupal/console": "^1.0",
         "drupal/devel": "^1.0@RC",
-        "drupal/stage_file_proxy": "^1.0@alpha"
+        "drupal/stage_file_proxy": "^1.0@alpha",
+        "drupal/console": "^1.0"
     },
     "require": {
         "composer/installers": "^1.0",
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "cweagans/composer-patches": "^1.6.0",
-        "acquia/lightning": "dev-8.x-2.x",
+        "acquia/lightning": "~2.1.6",
         "nrel/communications": "~1.0.2",
         "nrel/dam": "~1.0.1",
         "simplesamlphp/simplesamlphp": "^1.14",
@@ -64,8 +64,6 @@
         "enyo/dropzone": "^5.1",
         "drupal/dropzonejs": "^1.0@alpha",
         "drupal/eck": "^1.0@alpha",
-        "drupal/elasticsearch_aws_connector": "5.x-dev",
-        "drupal/elasticsearch_connector": "5.x-dev",
         "lsolesen/pel": "^0.9.6",
         "drupal/file_entity": "2.x-dev", 
         "drupal/file_mdm": "^1.1",
@@ -80,7 +78,7 @@
         "drupal/elasticsearch_helper": "5.x-dev",
         "drupal/entity_browser_enhanced": "^1.0@beta",
         "drupal/facets": "^1.0@alpha",
-        "drupal/field_group": "^1.0@RC",
+        "drupal/field_group": "1.x-dev",
         "drupal/google_analytics": "^2.1",
         "drupal/group": "^1.0@RC",
         "drupal/honeypot": "^1.27",
@@ -100,7 +98,8 @@
         "drupal/services": "^4.0@beta",
         "drupal/slick": "^1.0",
         "drupal/url_embed": "^1.0@alpha",
-        "drupal/coffee": "^1.0@beta"
+        "drupal/coffee": "^1.0@beta",
+        "drupal/address": "~1.0"
     },
     "repositories": [
         {
@@ -170,7 +169,8 @@
           "rm -Rf ./docroot/modules/contrib/views_bulk_operations/.git",
           "rm -Rf ./docroot/profiles/contrib/lightning/.git",
           "rm -Rf ./docroot/profiles/contrib/lightning/.gitignore",
-          "rm -Rf ./vendor/elasticsearch/elasticsearch/.gitmodules"
+          "rm -Rf ./vendor/elasticsearch/elasticsearch/.gitmodules",
+          "rm -Rf ./docroot/profiles/contrib/taxonomy_manager/.git"
       ],
       "post-update-cmd": [
         "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
