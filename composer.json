@@ -116,7 +116,7 @@
           "rm -Rf ./docroot/profiles/contrib/lightning/.git",
           "rm -Rf ./docroot/profiles/contrib/lightning/.gitignore",
           "rm -Rf ./vendor/elasticsearch/elasticsearch/.gitmodules",
-          "rm -Rf ./docroot/profiles/contrib/taxonomy_manager/.git",
+          "rm -Rf ./docroot/profiles/contrib/taxonomy_manager/.git"
       ],
       "post-update-cmd": [
         "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
