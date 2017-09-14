@@ -35,19 +35,23 @@
         "composer/composer": "^1.3",
         "drupal/console": "^1.0",
         "drush/drush": "8.1.11",
-        "drupal/stage_file_proxy": "^1.0@alpha",
-        "drupal/devel": "^1.0"
+        "drush/config-extra": "~1.0",
+        "drupal/stage_file_proxy": "~1.0@alpha",
+        "drupal/devel": "~1.0"
     },
     "require": {
-        "composer/installers": "^1.0",
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "cweagans/composer-patches": "^1.6.0",
-        "nrel/communications": "^1.1.1.05"
+        "nrel/communications": "^1.1.1.16"
     },
     "repositories": [
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+          "type": "composer",
+          "url": "https://asset-packagist.org"
         },
         {
       "type": "package",
@@ -86,7 +90,6 @@
           "if [ ! -d ./docroot/libraries/masonry ] ; then /bin/ln -f -s ../../docroot/profiles/contrib/communications/libraries/masonry ./docroot/libraries/masonry ; fi",
           "if [ ! -d ./docroot/libraries/juicebox ] ; then /bin/ln -f -s ../../docroot/profiles/contrib/communications/libraries/juicebox ./docroot/libraries/juicebox ; fi",
           "if [ ! -d ./docroot/libraries/imagesloaded ] ; then /bin/ln -f -s ../../docroot/profiles/contrib/communications/libraries/imagesloaded ./docroot/libraries/imagesloaded ; fi",
-          "if [ ! -d ./docroot/libraries/dropzone ] ; then /bin/ln -f -s ../../vendor/enyo/dropzone ./docroot/libraries/dropzone ; fi",
           "if [ ! -d ./docroot/libraries/phpexcel ] ; then /bin/ln -f -s ../../vendor/phpoffice/phpexcel ./docroot/libraries/phpexcel ; fi",
           "if [ ! -d ./docroot/libraries/plupload ] ; then /bin/ln -f -s ../../docroot/profiles/contrib/communications/libraries/plupload ./docroot/libraries/plupload ; fi",
           "/bin/ln -f -s ../../../../simplesamlphp/config/authsources.php ./vendor/simplesamlphp/simplesamlphp/config/authsources.php",
@@ -113,7 +116,7 @@
           "rm -Rf ./docroot/profiles/contrib/lightning/.git",
           "rm -Rf ./docroot/profiles/contrib/lightning/.gitignore",
           "rm -Rf ./vendor/elasticsearch/elasticsearch/.gitmodules",
-          "rm -Rf ./docroot/profiles/contrib/taxonomy_manager/.git"
+          "rm -Rf ./docroot/profiles/contrib/taxonomy_manager/.git",
       ],
       "post-update-cmd": [
         "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
@@ -129,11 +132,20 @@
         ]
     },
     "extra": {
+        "installer-types": [
+          "bower-asset",
+          "npm-asset"
+        ],
         "installer-paths": {
             "docroot/core": [
                 "type:drupal-core"
             ],
-            "docroot/modules/contrib/{$name}": [
+          "docroot/libraries/{$name}": [
+            "type:drupal-library",
+            "type:bower-asset",
+            "type:npm-asset"
+          ],
+          "docroot/modules/contrib/{$name}": [
                 "type:drupal-module"
             ],
             "docroot/profiles/contrib/{$name}": [
@@ -144,17 +156,10 @@
             ],
             "drush/contrib/{$name}": [
                 "type:drupal-drush"
-            ],
-            "docroot/libraries/{$name}": ["type:drupal-library"]
+            ]
         },
         "enable-patching": true,
         "patches": {
-            "drupal/core": {
-            },
-            "drupal/page_manager": {
-                "2874851 - Clicking a variant in page manager does not open the variant config":
-              "https://www.drupal.org/files/issues/page_manager-2874851-8.patch"
-            },
             "drupal/media_entity_image": {
                 "2875852 - Add Imagick field providers":
                 "https://www.drupal.org/files/issues/media_entity_image-2875852-3-Add-Imagick-field-providers.patch"
